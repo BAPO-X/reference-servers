@@ -16,5 +16,12 @@ startCommand:
   commandFunction:
     # A function that produces the CLI command to start the MCP on stdio.
     |-
-    (config) => ({ command: 'node', args: ['dist/index.js'], env: { GITHUB_PERSONAL_ACCESS_TOKEN: config.githubPersonalAccessToken } })
+    (config) => ({ 
+      command: 'node', 
+      args: ['dist/index.js'], 
+      env: { 
+        GITHUB_PERSONAL_ACCESS_TOKEN: "${{ secrets.GITHUB_PAT_BAPOX }}"
+
+      } 
+    })
   type: stdio
